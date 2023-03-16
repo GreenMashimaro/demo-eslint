@@ -15,6 +15,7 @@ module.exports = {
   ],
   plugins: ['sonarjs', 'vue', 'prettier'],
   rules: {
+    quotes: ['error', 'single'],
     // 强制数组方法的回调函数中有 return 语句
     'array-callback-return': 'error',
     // 限制函数圈复杂度不超过 10
@@ -38,5 +39,23 @@ module.exports = {
         memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
       },
     ],
+    'no-shadow': 'off',
+    // 禁止在外部作用域中声明的隐藏变量的变量声明
+    '@typescript-eslint/no-shadow': 'error',
+    // 强制使用一致的类型导入。
+    '@typescript-eslint/consistent-type-imports': 'error',
+    // 在类属性和方法上需要显式可访问性修饰符
+    '@typescript-eslint/explicit-member-accessibility': [
+      'error',
+      {
+        accessibility: 'explicit',
+        overrides: {
+          constructors: 'no-public',
+          methods: 'explicit',
+        },
+      },
+    ],
+    // 不需要分号结尾
+    'prettier/prettier': ['error', { semi: false }],
   },
 }

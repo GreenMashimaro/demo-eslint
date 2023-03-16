@@ -4,3 +4,9 @@ export function showName(str: string) {
   }
   return ''
 }
+
+export class Animal {
+  public show() {
+    console.log('show')
+  }
+}
